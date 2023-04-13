@@ -2,7 +2,11 @@
 
 Librerías utilizadas: `Pandas`, `Numpy`, `Matplotlib`, `Seaborn` y `Scikit-Learn`
 
+<<<<<<< HEAD
 Mediante diferentes algoritmos de regresión de Machine Learning se predice el costo del seguro médico de una persona. Para realizar la predicción se tiene en cuenta factores como: edad, sexo, bmi, hijos, si es fumador y la región a la que pertenece dentro de los Estados Unidos. Se utilizan diferentes algoritmos como regresión lineal, máquinas de vectores de soporte, árboles de decisión y muchos más. En la siguiente tabla se muestran los algoritmos utilizados y los puntajes obtenidos; la tabla se orden de mayor a menor, en función del $R^2$ test.
+=======
+Mediante diferentes algoritmos de regresión de Machine Learning se predice el costo del seguro médico de una persona. Para realizar la predicción se tiene en cuenta factores como: edad, sexo, bmi, hijos, si es fumador y la región a la que pertenece dentro de los Estados Unidos. Se utilizan diferentes algoritmos como regresión lineal, máquinas de vectores de soporte, árboles de decisión y muchos más. En la siguiente tabla se muestran los algoritmos utilizados y los puntajes obtenidos; la tabla se orden de mayor a menor, en función del $R^2$ score test.
+>>>>>>> eaf7c48a2a941a2336a16a3067a47a8a94ffec5f
 
 |           **Modelo**          	| **$R^2$ train** 	| **$R^2$ test** 	| **RMSR train** 	| **RMSR test** 	|
 |:-----------------------------:	|:------------:	|:-----------:	|:--------------:	|:-------------:	|
