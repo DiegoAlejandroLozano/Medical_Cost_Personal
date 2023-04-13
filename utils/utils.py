@@ -2,11 +2,15 @@
 el desarrollo del proyecto"""
 
 import pandas 
+import numpy
 
 from matplotlib import pyplot as plt
 
+from math import sqrt
+
 from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.metrics import silhouette_score, confusion_matrix, ConfusionMatrixDisplay, f1_score, precision_score, recall_score
+from sklearn.metrics import r2_score, mean_absolute_error
 from sklearn.decomposition import PCA
 
 def metodo_elbow_kmeans(n_grupos:int, dataset:pandas.DataFrame) -> None:
@@ -130,3 +134,42 @@ def classifier_performance(y_pred_:pandas.Series, y_true_:pandas.Series, titulo:
     display = ConfusionMatrixDisplay(matriz_confusion)
     ax.set(title=titulo)
     display.plot(ax=ax)
+
+def regression_performance(
+        y_train_:pandas.Series,
+        y_train_pred_:pandas.Series,
+        y_test_:pandas.Series,
+        y_test_pred_:pandas.Series,
+        nombre_modelo:str = None
+) -> None:
+    """"""
+    
+    r2_sc_train = r2_score(y_true=y_train_, y_pred=y_train_pred_)
+    r2_sc_test = r2_score(y_true=y_test_, y_pred=y_test_pred_)
+
+    RMSR_train = sqrt(mean_absolute_error(y_true=y_train_, y_pred=y_train_pred_))
+    RMSR_test = sqrt(mean_absolute_error(y_true=y_test_, y_pred=y_test_pred_))
+
+    print('\n')
+    print('='*70)    
+
+    if nombre_modelo is not None:
+        print("Desempeño modelos de gresión")
+        print('Modelo: ' + nombre_modelo + '\n')
+    else:
+        print("Desempeño modelos de gresión\n")
+
+    print("R^2 train: {:.2f}".format(r2_sc_train))
+    print("R^2 test: {:.2f}".format(r2_sc_test))
+
+    print("\nRMSR train: {:.0f}".format(RMSR_train))
+    print("RMSR test: {:.0f}".format(RMSR_test))
+
+
+def regression_visualization(y_true_:pandas.Series, y_pred_:pandas.Series) -> None:
+    x = range(0, len(y_true_))
+    plt.scatter(x=x, y=y_true_, s=5, label='Y (verdadera)')
+    plt.scatter(x=x, y=y_pred_, s=5, label='Y (predicción)')
+    plt.legend()
+    plt.grid()
+    plt.show()
