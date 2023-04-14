@@ -142,7 +142,16 @@ def regression_performance(
         y_test_pred_:pandas.Series,
         nombre_modelo:str = None
 ) -> None:
-    """"""
+    """Función encargada de mostrar el desempeño de los modelos
+    de regresión. 
+    
+    Parámetros de entrada:
+    
+    y_train_:pandas.Series --> Valores de la variable de salida de entrenamiento
+    y_train_pred:pandas.Series --> Valores de la variable de salida de entrenamiento predichas por el modelo
+    y_test_:pandas.Series --> Valores de la variable de salida de prueba
+    y_test_pred_:pandas.Series --> Valores de la variable de salida de prueba predichas por el modelo
+    nombre_modelo:str = None --> Nombre utilizado para identificar el modelo"""
     
     r2_sc_train = r2_score(y_true=y_train_, y_pred=y_train_pred_)
     r2_sc_test = r2_score(y_true=y_test_, y_pred=y_test_pred_)
@@ -167,6 +176,14 @@ def regression_performance(
 
 
 def regression_visualization(y_true_:pandas.Series, y_pred_:pandas.Series) -> None:
+    """Función encargada de mostrar visualmente la comparación entre los datos de salida
+    reales con los datos de salida predichos por el modelo.
+    
+    Parámetros de entrada: 
+    
+    y_true_:pandas.Series --> Valores de salida reales
+    y_pred_:pandas.Series --> Valores de salida predichos por el modelo"""
+    
     x = range(0, len(y_true_))
     plt.scatter(x=x, y=y_true_, s=5, label='Y (verdadera)')
     plt.scatter(x=x, y=y_pred_, s=5, label='Y (predicción)')
