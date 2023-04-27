@@ -21,6 +21,8 @@ Mediante diferentes algoritmos de regresión de Machine Learning se predice el c
 
 El dataset se puede consultar [aquí](https://www.kaggle.com/datasets/mirichoi0218/insurance).
 
+**Nota:** En la última actualización se implementa una red neuronal con la librería Keras. Para ver el resultado de esta implementación, ver el archivo `redes_neuronales.ipynb` dentro del directorio `codigo`.
+
 Para correr el repositorio de forma local se debe crear un entorno virtual con el siguiente comando:
 
     Python3 -m venv nombre_entorno_virtual
